@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "id": "sbi",
+  "version": "${version}",
+
+  "name": "Skyblock Improvements",
+  "description": "",
+  "authors": [],
+  "contact": {},
+
+  "license": "MIT",
+  "icon": "icon.png",
+
+  "environment": "*",
+  "entrypoints": {
+		"main": [
+			"me.focusdev.sbi.fabric.SkyblockImprovementsFabric"
+		]
+	},
+  "mixins": [
+    "sbi.mixins.json",
+    "sbi-common.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.14.19",
+    "minecraft": ">=1.19.4"
+  }
+}

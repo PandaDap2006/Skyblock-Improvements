@@ -1,0 +1,20 @@
+{
+	"required": true,
+	"minVersion": "0.8",
+	"package": "me.focusdev.sbi.mixin",
+	"compatibilityLevel": "JAVA_17",
+	"mixins": [
+	],
+	"client": [
+		"MinecraftMixin",
+		"entity.ArmorstandMixin",
+		"entity.render.ArmorstandRendererMixin",
+		"gui.AbstractContainerScreenMixin",
+		"gui.EffectInventoryScreenMixin",
+		"gui.InGameHudMixin",
+		"gui.ScreenMixin"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	}
+}
