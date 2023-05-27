@@ -26,7 +26,7 @@
   {
     "id": 5,
     "displayName": "Wooden Planks",
-    "name": "planks",
+    "name": "wood",
     "stackSize": 64
   },
   {
@@ -212,7 +212,7 @@
   {
     "id": 44,
     "displayName": "Stone Slab",
-    "name": "stone_slab",
+    "name": "step",
     "stackSize": 64
   },
   {
@@ -260,7 +260,7 @@
   {
     "id": 53,
     "displayName": "Oak Wood Stairs",
-    "name": "oak_stairs",
+    "name": "wood_stairs",
     "stackSize": 64
   },
   {
@@ -566,7 +566,7 @@
   {
     "id": 126,
     "displayName": "Wood Slab",
-    "name": "wooden_slab",
+    "name": "wood_step",
     "stackSize": 64
   },
   {
@@ -602,19 +602,19 @@
   {
     "id": 134,
     "displayName": "Spruce Wood Stairs",
-    "name": "spruce_stairs",
+    "name": "spruce_wood_stairs",
     "stackSize": 64
   },
   {
     "id": 135,
     "displayName": "Birch Wood Stairs",
-    "name": "birch_stairs",
+    "name": "birch_wood_stairs",
     "stackSize": 64
   },
   {
     "id": 136,
     "displayName": "Jungle Wood Stairs",
-    "name": "jungle_stairs",
+    "name": "jungle_wood_stairs",
     "stackSize": 64
   },
   {
@@ -740,7 +740,7 @@
   {
     "id": 163,
     "displayName": "Acacia Wood Stairs",
-    "name": "acacia_stairs",
+    "name": "acacia_wood_stairs",
     "stackSize": 64
   },
   {
@@ -1416,7 +1416,7 @@
   {
     "id": 295,
     "displayName": "Seeds",
-    "name": "wheat_seeds",
+    "name": "seeds",
     "stackSize": 64
   },
   {
@@ -1815,7 +1815,7 @@
   {
     "id": 324,
     "displayName": "Oak Door",
-    "name": "wooden_door",
+    "name": "wood_door",
     "stackSize": 64
   },
   {
@@ -1851,7 +1851,7 @@
   {
     "id": 330,
     "displayName": "Iron Door",
-    "name": "iron_door",
+    "name": "iron_door_item",
     "stackSize": 64
   },
   {
@@ -2001,7 +2001,7 @@
   {
     "id": 351,
     "displayName": "Dye",
-    "name": "dye",
+    "name": "ink_sack",
     "stackSize": 64,
     "variations": [
       {
@@ -2406,7 +2406,7 @@
   {
     "id": 397,
     "displayName": "Skull",
-    "name": "skull",
+    "name": "skull_item",
     "stackSize": 64,
     "variations": [
       {
@@ -2607,31 +2607,31 @@
   {
     "id": 427,
     "displayName": "Spruce Door",
-    "name": "spruce_door",
+    "name": "spruce_door_item",
     "stackSize": 64
   },
   {
     "id": 428,
     "displayName": "Birch Door",
-    "name": "birch_door",
+    "name": "birch_door_item",
     "stackSize": 64
   },
   {
     "id": 429,
     "displayName": "Jungle Door",
-    "name": "jungle_door",
+    "name": "jungle_door_item",
     "stackSize": 64
   },
   {
     "id": 430,
     "displayName": "Acacia Door",
-    "name": "acacia_door",
+    "name": "acacia_door_item",
     "stackSize": 64
   },
   {
     "id": 431,
     "displayName": "Dark Oak Door",
-    "name": "dark_oak_door",
+    "name": "dark_oak_door_item",
     "stackSize": 64
   },
   {
