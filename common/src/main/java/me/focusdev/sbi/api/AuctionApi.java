@@ -7,10 +7,12 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import me.focusdev.sbi.utils.ComponentStyles;
 import me.focusdev.sbi.utils.ItemUtils;
+import net.minecraft.commands.arguments.item.ItemParser;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.nbt.*;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.datafix.fixes.ItemIdFix;
 import net.minecraft.world.item.ItemStack;
 
 import java.io.*;
@@ -78,22 +80,10 @@ public class AuctionApi extends API {
 				System.out.println(new GsonBuilder().setPrettyPrinting().create().toJson(new Gson().fromJson(nbt.toString(), JsonObject.class)));
 
 				int amount = nbt.getByte("Count");
-				int biId = nbt.getShort("Damage");
-				String itemId = String.valueOf(nbt.getShort("id")) + (biId != 0 ? ":" + biId : "");
+				CompoundTag extraAttributes = nbt.getCompound("tag").getCompound("ExtraAttributes");
+				String itemId = extraAttributes.get("id").getAsString().toLowerCase();
 
-				BufferedReader in = new BufferedReader(new InputStreamReader(getClass().getResourceAsStream("api/item_ids.json")));
-				String inputLine;
-				StringBuffer content = new StringBuffer();
-				while ((inputLine = in.readLine()) != null) {
-					content.append(inputLine);
-				}
-				in.close();
-
-				String json = content.toString();
-				Gson gson = new GsonBuilder().disableHtmlEscaping().create();
-				JsonObject itemIdJson = gson.fromJson(json, JsonObject.class);
-
-				this.item = new ItemStack(BuiltInRegistries.ITEM.get(new ResourceLocation(itemIdJson.get(itemId).getAsString())), amount);
+				this.item = new ItemStack(BuiltInRegistries.ITEM.get(new ResourceLocation(ItemApi.items.get(itemId).materialId)), amount);
 				this.item.setTag(nbt.getCompound("tag"));
 			} catch (IOException e) {
 				throw new RuntimeException(e);

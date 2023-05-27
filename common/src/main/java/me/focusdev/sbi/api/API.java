@@ -11,10 +11,15 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 public abstract class API {
+	private final String url;
+
 	public API(String url) {
-		downloadJSON(url);
+		this.url = url;
 	}
 
+	public void downloadJSON() {
+		downloadJSON(url);
+	}
 	public void downloadJSON(String url) {
 		try {
 			HttpURLConnection connection = (HttpURLConnection) new URL(url).openConnection();
