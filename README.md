@@ -1,6 +1,6 @@
 # Skyblock Improvements
 A mod for improving the hypixel skyblock experience but for 1.19.4+
-***
+
 ### Features:
 **Notice** Most features will be Customisable in the future
 
