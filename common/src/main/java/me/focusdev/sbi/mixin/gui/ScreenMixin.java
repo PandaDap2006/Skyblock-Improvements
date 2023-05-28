@@ -1,24 +1,17 @@
 package me.focusdev.sbi.mixin.gui;
 
 import com.mojang.blaze3d.vertex.PoseStack;
-import com.mojang.datafixers.types.templates.Tag;
-import me.focusdev.sbi.api.AuctionApi;
 import me.focusdev.sbi.api.BazaarApi;
 import me.focusdev.sbi.client.gui.component.ScrollableTooltipPositioner;
 import me.focusdev.sbi.utils.ItemUtils;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.Options;
 import net.minecraft.client.gui.components.events.AbstractContainerEventHandler;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.gui.screens.inventory.tooltip.ClientTooltipPositioner;
-import net.minecraft.client.gui.screens.inventory.tooltip.DefaultTooltipPositioner;
-import net.minecraft.nbt.NbtUtils;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import org.jetbrains.annotations.Nullable;
-import org.joml.Math;
-import org.joml.Vector2i;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
@@ -67,7 +60,7 @@ public abstract class ScreenMixin extends AbstractContainerEventHandler {
 				lines.add(Component.empty());
 			lines.addAll(product.getLore(itemStack.getCount() > 1 ? itemStack.getCount() : itemStack.getMaxStackSize()));
 		}
-		lines.addAll(AuctionApi.getLore(itemID));
+//		lines.addAll(AuctionApi.getLore(itemID));
 
 		cir.setReturnValue(lines);
 	}

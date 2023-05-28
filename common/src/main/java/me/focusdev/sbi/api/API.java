@@ -2,6 +2,7 @@ package me.focusdev.sbi.api;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 
 import java.io.BufferedReader;
@@ -10,7 +11,7 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-public abstract class API {
+public abstract class API<T extends JsonElement> {
 	private final String url;
 
 	public API(String url) {
@@ -35,12 +36,12 @@ public abstract class API {
 
 			String json = content.toString();
 			Gson gson = new GsonBuilder().disableHtmlEscaping().create();
-			JsonObject jsonObject = gson.fromJson(json, JsonObject.class);
-			registerApiJson(jsonObject);
+			JsonElement jsonObject = gson.fromJson(json, JsonElement.class);
+			registerApiJson((T) jsonObject);
 		} catch (IOException e) {
 			throw new RuntimeException(e);
 		}
 	}
 
-	abstract void registerApiJson(JsonObject jsonObject);
+	abstract void registerApiJson(T jsonObject);
 }

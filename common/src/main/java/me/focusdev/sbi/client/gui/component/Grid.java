@@ -2,15 +2,9 @@ package me.focusdev.sbi.client.gui.component;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
-import me.focusdev.sbi.client.gui.menu.AuctionMenu;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.components.AbstractScrollWidget;
 import net.minecraft.client.gui.narration.NarrationElementOutput;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.util.Mth;
-import net.minecraft.world.item.Item;
 import org.jetbrains.annotations.NotNull;
 import org.joml.Math;
 import org.joml.Vector3f;
@@ -110,7 +104,7 @@ public class Grid<I extends GridItem> extends AbstractScrollWidget {
 
 			poseStack.pushPose();
 			poseStack.translate(0, scrollAmount, 0);
-			RenderSystem.setShaderTexture(0, AuctionMenu.AuctionItem.WIDGET_LOCATION);
+//			RenderSystem.setShaderTexture(0, AuctionMenu.AuctionItem.WIDGET_LOCATION);
 			blit(poseStack, x, y,
 					251, 0,
 					5, scrollBarHeight/2);

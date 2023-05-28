@@ -6,7 +6,7 @@ import com.google.gson.JsonObject;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ItemApi extends API {
+public class ItemApi extends API<JsonObject> {
 	public static final Map<String, Item> items = new HashMap<>();
 
 

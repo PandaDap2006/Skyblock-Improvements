@@ -1,26 +1,26 @@
 package me.focusdev.sbi.api;
 
 import com.google.common.io.ByteSource;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import me.focusdev.sbi.utils.ComponentStyles;
 import me.focusdev.sbi.utils.ItemUtils;
-import net.minecraft.commands.arguments.item.ItemParser;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.nbt.*;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.ListTag;
+import net.minecraft.nbt.NbtIo;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.util.datafix.fixes.ItemIdFix;
 import net.minecraft.world.item.ItemStack;
 
-import java.io.*;
+import java.io.IOException;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Base64;
+import java.util.List;
 
-public class AuctionApi extends API {
+public class AuctionApi extends API<JsonObject> {
 	public static List<Product> products = new ArrayList<>();
 
 	public AuctionApi() {
@@ -41,7 +41,7 @@ public class AuctionApi extends API {
 	public static float lowestBin(String itemID) {
 		float price = -1;
 		for (Product product : products) {
-			if (ItemUtils.getItemID(product.item).equalsIgnoreCase(itemID) && product.isBin) {
+			if (product.itemID.equalsIgnoreCase(itemID) && product.isBin) {
 				if (price < 0 || product.startingPrice < price) {
 					price = product.startingPrice;
 				}
@@ -68,7 +68,7 @@ public class AuctionApi extends API {
 	}
 
 	public static class Product {
-		public final ItemStack item;
+		public final String itemID;
 		public final boolean isBin;
 		public final float startingPrice;
 
@@ -77,14 +77,12 @@ public class AuctionApi extends API {
 			try {
 				CompoundTag nbt = NbtIo.readCompressed(ByteSource.wrap(nbtBytes).openStream());
 				nbt = ((ListTag)nbt.get("i")).getCompound(0);
-				System.out.println(new GsonBuilder().setPrettyPrinting().create().toJson(new Gson().fromJson(nbt.toString(), JsonObject.class)));
 
-				int amount = nbt.getByte("Count");
 				CompoundTag extraAttributes = nbt.getCompound("tag").getCompound("ExtraAttributes");
-				String itemId = extraAttributes.get("id").getAsString().toLowerCase();
-
-				this.item = new ItemStack(BuiltInRegistries.ITEM.get(new ResourceLocation(ItemApi.items.get(itemId).materialId)), amount);
-				this.item.setTag(nbt.getCompound("tag"));
+				if (extraAttributes.contains("id"))
+					this.itemID = extraAttributes.getString("id").toLowerCase();
+				else
+					this.itemID = "null";
 			} catch (IOException e) {
 				throw new RuntimeException(e);
 			}

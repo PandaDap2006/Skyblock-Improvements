@@ -12,7 +12,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class BazaarApi extends API {
+public class BazaarApi extends API<JsonObject> {
 	public static Map<String, Product> products = new HashMap<>();
 
 	public BazaarApi() {

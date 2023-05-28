@@ -7,12 +7,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class MaterialApi extends API {
+public class MaterialApi extends API<JsonObject> {
 	public static final Map<String, String> itemIds = new HashMap<>();
 
 
 	public MaterialApi() {
-		super("https://raw.githubusercontent.com/PandaDap2006/Skyblock-Improvements/master/api/item_ids.json");
+		super("https://raw.githubusercontent.com/PandaDap2006/Skyblock-Improvements/master/api/material_ids.json");
 	}
 
 	@Override
