@@ -1,20 +1,20 @@
 # Skyblock Improvements
 A mod for improving the hypixel skyblock experience but for 1.19.4+
 ***
-## Features:
+### Features:
 **Notice** Most features will be Customisable in the future
 
-**Hud:**
+#### Hud:
 * Health and Mana bar
 * Skill bar
 
-**Item:**
+#### Item:
 * Bazaar: Buy and Sell price on Item Tooltip
 * Auction: Lowest BIN price on Item Tooltip
 * NPC: Sell price on Item Tooltip
 
-**Menu:**
+#### Menu:
 * Quick Buttons in Inventory
 
-**Optimisations:**
+#### Optimisations:
 * Invisible Armorstands no longer tick
